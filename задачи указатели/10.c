@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
+int* allocateArray(int size) {
+    int* arr = (int*)malloc(size * sizeof(int));
+    return arr;
+}
+
 int main() {
     srand(time(NULL));
 
@@ -10,7 +15,7 @@ int main() {
     printf("Enter size of an array: ");
     scanf("%d", &size);
 
-    array = (int*)calloc(size, sizeof(int));
+    array = allocateArray(size);
 
     for(int i = 0; i < size; i++){
         array[i] = rand() % 100;
